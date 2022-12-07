@@ -15,21 +15,40 @@ class CategoryFixtures extends Fixture
     //     $manager->persist($category);
     //     $manager->flush();
     // }
-    const CATEGORIES = [
+    // const CATEGORIES = [
+    //     'Action',
+    //     'Aventure',
+    //     'Animation',
+    //     'Fantastique',
+    //     'Horreur',
+    // ];
+
+    // public function load(ObjectManager $manager)
+    // {
+    //     foreach (self::CATEGORIES as $key => $categoryNames) {
+    //         $category = new Category();
+    //         $category->setName($categoryNames);
+
+    //         $manager->persist($category);
+    //     }
+    //     $manager->flush();
+    // }
+
+    public const CATEGORIES = [
         'Action',
         'Aventure',
         'Animation',
         'Fantastique',
         'Horreur',
-    ];
 
+    ];
     public function load(ObjectManager $manager)
     {
-        foreach (self::CATEGORIES as $key => $categoryNames) {
+        foreach (self::CATEGORIES as $categoryName) {
             $category = new Category();
-            $category->setName($categoryNames);
-
+            $category->setName($categoryName);
             $manager->persist($category);
+            $this->addReference('category_' . $categoryName, $category);
         }
         $manager->flush();
     }
