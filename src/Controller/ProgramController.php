@@ -24,7 +24,7 @@ class ProgramController extends AbstractController
     {
 
         $program = $programRepository->findOneBy(['id' => $id]);
-
+        // same as $program = $programRepository->find($id);
         if (!$program) {
             throw $this->createNotFoundException(
                 'No program with id : ' . $id . ' found in program\'s table.'
@@ -33,6 +33,5 @@ class ProgramController extends AbstractController
         return $this->render('program/show.html.twig', [
             'program' => $program
         ]);
-        // return new Response($id);
     }
 }
