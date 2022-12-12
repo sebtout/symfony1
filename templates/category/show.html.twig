@@ -1,17 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}série #{{ program.id }}
+{% block title %}série #
 {% endblock %}
 {% block body %}
 <div class="media">
 	<div class="media-body">
-		<h1 class="mt-0">{{ category.name }}</h1>
+		<h1 class="mt-0">{{ category.0.name }}</h1>
 		<p>Catégorie :
-			{# {{ program.category.name }}</p> #}
+			{# {{ programs.category.name }}</p> #}
 		</p>
 	</div>
 </div>
 
-<a href="{{ path("program_show", { id: program.id }) }}">
+<a href="{{ path("program_show", { id: programs[0].id }) }}">
 	Voir la fiche
 </a {% endblock %}
