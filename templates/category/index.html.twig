@@ -12,7 +12,7 @@
 				/ Catégorie :
 				{{ category.name }}
 				{# Lien vers la fiche de la série : #}
-				<a href="{{ path("category_show", { id: category.name }) }}">Voir les séries disponible</a>
+				<a href="{{ path("category_show", { categoryName: category.name }) }}">Voir les séries disponible</a>
 			</div>
 		{% else %}
 			Aucune série trouvée.
