@@ -41,6 +41,12 @@ class ProgramFixtures extends Fixture
         $ca->setCategory($this->getReference('category_Horreur'));
         $manager->persist($ca);
         $manager->flush();
+
+        $toto = new Program();
+        $toto->setTitle('Toto le roi de l\'action');
+        $toto->setSynopsis('toto sauve tata');
+        $toto->setCategory($this->getReference('category_Action'));
+        $manager->persist($toto);
     }
     public function getDependencies()
     {
